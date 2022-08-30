@@ -37,7 +37,7 @@ var generateAccessToken = function (req, resp) {
         expiredTs = 0;
     }
 
-    var token = new Token("dc2cac0b37ae4ecf8d4a80e45845cc56", "645234b7265742d1a8c2bf1bff0f1b79", channel, uid);
+    var token = new Token(APP_ID, APP_CERTIFICATE, channel, uid);
     // typically you will ONLY need join channel priviledge
     token.addPriviledge(Priviledges.kJoinChannel, expiredTs);
     return resp.json({ 'token': token.build() });
